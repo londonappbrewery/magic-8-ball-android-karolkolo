@@ -19,31 +19,38 @@ public class MainActivity extends AppCompatActivity {
 
         final ImageView ballDisplay = (ImageView) findViewById(R.id.image_eightBall);
 
-        Button myButton;
-        myButton = (Button) findViewById(R.id.askButton);
 
-        final int[] ballArray = {
-                R.drawable.ball1 ,
+
+        final int[] ballArray = new int[] {
+                R.drawable.ball1,
                 R.drawable.ball2,
                 R.drawable.ball3,
                 R.drawable.ball4,
-                R.drawable.ball5};
+                R.drawable.ball5
+    };
 
+
+    Button myButton = (Button) findViewById(R.id.askButton);
 
         myButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v){
 
-                Log.d("working", "button" );
+            Random randomNumberGenerator = new Random();
 
-                Random randomNumberGenerator = new Random();
+            int number = randomNumberGenerator.nextInt(5);
 
-                int number = randomNumberGenerator.nextInt(5);
+            Log.d("number is" , "right"+ number);
 
-                Log.d("number is" , "right"+ number);
+            int imageResourceId = ballArray[number];
+            ballDisplay.setImageResource(imageResourceId);
 
-                ballDisplay.setImageResource(ballArray[number]);
-            }
+        }
+
+
+
+
+
         });
 
 
